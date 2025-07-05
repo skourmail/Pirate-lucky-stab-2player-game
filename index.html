@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirate Lucky Stab!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="game-title">Pirate Lucky Stab!</h1>
+        
+       
+        <div class="barrel-wrapper">
+            <div class="barrel" style="background-image: url('barrel.png');">
+                <div class="pirate-figure" id="pirate" style="background-image: url('pirate.png');"></div>
+
+                </div>
+        </div>
+
+	<p id="game-message">Click 'Start New Game' to begin!</p>
+ 	<button id="startButton">Start New Game</button>
+    </div>
+<audio id="background-music" src="sounds/pirate_theme.mp3" loop preload="auto"></audio>
+    <audio id="stab-sound" src="sounds/sword_stab.mp3" preload="auto"></audio>
+    <audio id="pop-sound" src="sounds/pirate_pop.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

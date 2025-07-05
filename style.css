@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('background.png'); /* Your stone wall background */
+    background-size: cover;
+    background-position: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* A cartoony font */
+    color: #fff; /* White text for readability */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    overflow: hidden; /* Prevent scrollbars if elements go slightly off-screen */
+    cursor: url('sword-cursor.png'), auto;
+}
+
+.game-container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    max-width: 90%;
+    position: relative; /* For absolute positioning of barrel-wrapper if needed */
+}
+
+.game-title {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #FFD700; /* Gold color for title */
+}
+
+#startButton {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30px;
+}
+
+#startButton:hover {
+    background-color: #45a049;
+}
+
+.barrel-wrapper {
+    position: relative;
+    width: 400px; /* Adjust based on your barrel.png size */
+    height: 400px; /* Adjust based on your barrel.png size */
+    margin: 0 auto; /* Center the barrel */
+    display: flex; /* For centering pirate and slots visually */
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+#game-message {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+
+.barrel {
+    width: 100%;
+    height: 100%;
+    background-size: contain; /* Make sure the barrel image fits */
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* Crucial for positioning slots and pirate inside */
+    z-index: 2;
+}
+
+.pirate-figure {
+    position: absolute;
+    bottom: 50%; /* Adjust this to make the pirate appear to pop out of the barrel top */
+    left: 50%;
+    transform: translateX(-50%) translateY(100%); /* Start below barrel, move up */
+    width: 200px; /* Adjust size of pirate */
+    height: 200px; /* Adjust size of pirate */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none; /* Initially hidden */
+    transition: transform 0.3s ease-out; /* Smooth pop animation */
+    z-index: 1; /* Ensure pirate is above slots when popped */
+}
+
+/* Style for individual sword slots */
+.slot {
+    position: absolute;
+    width: 30px; /* Adjust size of your slit.png */
+    height: 60px; /* Adjust size of your slit.png */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*cursor: pointer;*/
+    z-index: 4;
+    /* You'll place these specifically over the barrel's 'holes' */
+    /* Example: top: 20%; left: 30%; */
+    /* We'll use JavaScript to set these positions more easily or calculate them */
+}
+
+.slot.inserted {
+    /* Style for when a sword has been inserted into the slot */
+    /* You can change the background-image here to a "sword_inserted.png" or just show the sword on top */
+    /* For simplicity, we'll just add the sword image *over* the slot using JS */
+    z-index: 4;
+}
+
+/* Optional: Add an image for the sword inserted into the slot if you have one */
+.slot .sword-inserted {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('sword.png'); /* Assuming you have a sword.png */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.2s ease;
+}
+
+.slot.active-sword .sword-inserted {
+    opacity: 1; /* Show when sword is inserted */
+}
+
+/* New CSS class for flipping the sword horizontally */
+.sword-flipped {
+    transform: scaleY(-1); /* Flips the element vertically */
+}
