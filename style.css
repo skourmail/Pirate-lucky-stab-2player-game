@@ -5,11 +5,13 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    max-height: 100vh;
+    height: 100vh;
     background-image: url('background.png'); /* Your stone wall background */
     background-size: cover;
     background-position: center;
     font-family: 'Arial', sans-serif; /* A cartoony font */
-    color: #bbb; /* White text for readability */
+    color: #fff; /* White text for readability */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     overflow: hidden; /* Prevent scrollbars if elements go slightly off-screen */
     cursor: url('sword-cursor.png'), auto;
